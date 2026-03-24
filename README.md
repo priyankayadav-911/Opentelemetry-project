@@ -112,6 +112,16 @@ OTLP receivers: Accepts gRPC and HTTP traces/metrics
 Jaeger exporter: Receives traces
 Prometheus exporter: Exposes metrics on port 8889
 
+**prometheus.yml**
+
+        global:
+          scrape_interval: 5s
+
+        scrape_configs:
+         - job_name: "otel-collector"
+            static_configs:
+              - targets: ["otelcol:8889"]
+
 
 **Running the Project**
 
