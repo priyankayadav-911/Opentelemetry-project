@@ -13,16 +13,17 @@ Understand application performance
 Detect errors and bottlenecks
 Visualize data in real-time dashboards
 **Architecture**
-Python App
-   │
-   │ OTLP Exporter (Traces & Metrics)
-   ▼
-OpenTelemetry Collector
-   ├─> Jaeger (Traces)
-   └─> Prometheus (Metrics)
+
+        Python App
            │
-           ▼
-        Grafana Dashboard
+           │ OTLP Exporter (Traces & Metrics)
+   ▼
+        OpenTelemetry Collector
+           ├─> Jaeger (Traces)
+           └─> Prometheus (Metrics)
+                   │
+                   ▼
+                Grafana Dashboard
 
 **Components:**
 
