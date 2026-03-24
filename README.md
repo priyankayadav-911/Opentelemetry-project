@@ -40,6 +40,7 @@ Includes error counters with labels for different error types
 
 **Example snippet:**
 app.py:
+
          from opentelemetry import trace, metrics
          from opentelemetry.sdk.trace import TracerProvider
          from opentelemetry.sdk.trace.export import BatchSpanProcessor
