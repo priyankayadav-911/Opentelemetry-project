@@ -28,14 +28,16 @@ Visualize data in real-time dashboards
 
 **Components:**
 
-Component	Purpose
-Python App--->Generates traces and metrics, including custom counters and error metrics
-OTLP Exporter--->	Sends traces & metrics to collector
-OpenTelemetry Collector--->Receives OTLP data and exports it to Jaeger & Prometheus
-Jaeger--->View detailed spans and error traces
-Prometheus--->Scrapes metrics from collector, provides data for visualization
-Grafana--->Creates dashboards and visualizes metrics
+
+       1) Python App--->Generates traces and metrics, including custom counters and error metrics
+        2) OTLP Exporter--->	Sends traces & metrics to collector
+        3)  OpenTelemetry Collector--->Receives OTLP data and exports it to Jaeger & Prometheus
+        4)  Jaeger--->View detailed spans and error traces
+        5) Prometheus--->Scrapes metrics from collector, provides data for visualization
+        6) Grafana--->Creates dashboards and visualizes metrics
+        
 **Python Application**
+
 Uses OpenTelemetry SDK for Python
 Captures spans (traces) and counters (metrics)
 Includes error counters with labels for different error types
@@ -117,6 +119,7 @@ Prometheus exporter: Exposes metrics on port 8889
 OTLP receivers: Accepts gRPC and HTTP traces/metrics
 Jaeger exporter: Receives traces
 Prometheus exporter: Exposes metrics on port 8889
+
 **Running the Project**
 
 1️⃣ Start Collector
