@@ -93,14 +93,14 @@ app.py:
        tls:
       insecure: true
 
-  service:
-   pipelines:
-     traces:
-       receivers: [otlp_grpc, otlp_http]
-      exporters: [jaeger]
-    metrics:
-      receivers: [otlp_grpc, otlp_http]
-      exporters: [prometheus]
+          service:
+           pipelines:
+             traces:
+               receivers: [otlp_grpc, otlp_http]
+              exporters: [jaeger]
+            metrics:
+              receivers: [otlp_grpc, otlp_http]
+              exporters: [prometheus]
 
 Notes:
 
