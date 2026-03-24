@@ -13,7 +13,7 @@ Understand application performance
 Detect errors and bottlenecks
 Visualize data in real-time dashboards
 
-**Architecture**
+# **Architecture**
 
          Python App
            │
