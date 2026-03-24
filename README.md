@@ -75,7 +75,7 @@ except Exception as e:
 
 
 
-**Collector Configuration 
+# **Collector Configuration 
 (otel-collector-config.yaml)****
 receivers:
   otlp_grpc:
