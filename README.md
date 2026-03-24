@@ -77,7 +77,8 @@ app.py:
 
 
 # **Collector Configuration 
-(otel-collector-config.yaml)****
+(otel-collector-config.yaml)
+
 receivers:
   otlp_grpc:
   otlp_http:
