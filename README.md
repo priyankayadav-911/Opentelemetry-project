@@ -185,7 +185,7 @@ Prometheus exporter: Exposes metrics on port 8889
         Grafana + Prometheus: Only shows metrics, i.e., numbers, counters, rates.
         Example: my_counter_total = 5 → 5 requests
         error_count_total = 2 → 2 errors
-  It does not show actual error messages or stack traces.
+          It does not show actual error messages or stack traces.
         Where you see the actual error?
           Jaeger (traces) → This is where you see detailed spans.
            Each span can have:
