@@ -1,11 +1,11 @@
 
-         **OpenTelemetry Observability Setup***
-**Overview**
+         *OpenTelemetry Observability Setup*
+# **Overview**
 
 This project demonstrates how to implement observability for a Python application using OpenTelemetry. It captures both:
 
-Traces → To see request flow and errors in detail (Jaeger)
-Metrics → To monitor counts, error rates, and custom metrics (Prometheus + Grafana)
+        Traces → To see request flow and errors in detail (Jaeger)
+        Metrics → To monitor counts, error rates, and custom metrics (Prometheus + Grafana)
 
 **Benefits:**
 
