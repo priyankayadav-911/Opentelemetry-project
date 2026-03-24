@@ -159,30 +159,36 @@ Prometheus exporter: Exposes metrics on port 8889
               Visualize both metrics in one panel or use multiple panels.
 
 # **How It Works****
-Traces: Show request flow and detailed errors in Jaeger
-Metrics: Show counts, rates, and error types in Prometheus/Grafana
-Combining both allows full observability:
-Grafana → “how many errors?”
-Jaeger → “what actually failed and where?”
-Key Commands
-****Check running containers
-    docker ps
 
-#Logs for collector
-docker logs otelcol -f
+        Traces: Show request flow and detailed errors in Jaeger
+        Metrics: Show counts, rates, and error types in Prometheus/Grafana
+        Combining both allows full observability:
+        Grafana → “how many errors?”
+        Jaeger → “what actually failed and where?”
+        
+# Key Commands
 
-#Test Prometheus metrics
-curl http://localhost:8889/metrics
-Sample Metrics Output
-#HELP my_counter_total
-#TYPE my_counter_total counter
-my_counter_total{job="unknown_service"} 5
+         1)Check running containers
+            docker ps
 
-#HELP error_count_total
-#TYPE error_count_total counter
-error_count_total{job="unknown_service",error_type="ValueError"} 2
+        2)Logs for collector
+        docker logs otelcol -f
+
+        3)Test Prometheus metrics
+        curl http://localhost:8889/metrics
+
+ # sample metric data output
+
+         #HELP my_counter_total
+        #TYPE my_counter_total counter
+        my_counter_total{job="unknown_service"} 5
+
+        #HELP error_count_total
+        #TYPE error_count_total counter
+        error_count_total{job="unknown_service",error_type="ValueError"} 2
 
 # **FINAL OBSERVATION**
+
 Grafana + Prometheus: Only shows metrics, i.e., numbers, counters, rates.
 Example: my_counter_total = 5 → 5 requests
 error_count_total = 2 → 2 errors
