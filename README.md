@@ -193,13 +193,13 @@ Prometheus exporter: Exposes metrics on port 8889
                           Exception messages
                           Stack traces
           
- So if you click on a red span in Jaeger, you can see what the error actually was, while Grafana just shows the count of errors.
+                So if you click on a red span in Jaeger, you can see what the error actually was, while Grafana just shows the count of errors.
 
- Think of it like this:
-        Tool	Shows
-        Grafana	Metrics (counts, rates, trends)
-        Prometheus	Scraped metrics (numbers)
-        Jaeger	Traces (actual operations & errors)
+         Think of it like this:
+        
+                Grafana	Metrics (counts, rates, trends)
+                Prometheus	Scraped metrics (numbers)
+                Jaeger	Traces (actual operations & errors)
 
 # **Workflow in this setup:**
 
