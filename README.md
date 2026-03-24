@@ -85,18 +85,18 @@ app.py:
      otlp_grpc:
      otlp_http:
 
-exporters:
-  prometheus:
-    endpoint: "0.0.0.0:8889"
-  jaeger:
-    endpoint: "http://jaeger:14250"
-    tls:
+        exporters:
+        prometheus:
+        endpoint: "0.0.0.0:8889"
+        jaeger:
+        endpoint: "http://jaeger:14250"
+       tls:
       insecure: true
 
-service:
-  pipelines:
-    traces:
-      receivers: [otlp_grpc, otlp_http]
+  service:
+   pipelines:
+     traces:
+       receivers: [otlp_grpc, otlp_http]
       exporters: [jaeger]
     metrics:
       receivers: [otlp_grpc, otlp_http]
