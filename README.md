@@ -12,13 +12,14 @@ Metrics → To monitor counts, error rates, and custom metrics (Prometheus + Gra
 Understand application performance
 Detect errors and bottlenecks
 Visualize data in real-time dashboards
+
 **Architecture**
 
-        Python App
+         Python App
            │
            │ OTLP Exporter (Traces & Metrics)
-   ▼
-        OpenTelemetry Collector
+           ▼
+          OpenTelemetry Collector
            ├─> Jaeger (Traces)
            └─> Prometheus (Metrics)
                    │
