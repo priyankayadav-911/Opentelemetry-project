@@ -116,7 +116,9 @@ OTLP receivers: Accepts gRPC and HTTP traces/metrics
 Jaeger exporter: Receives traces
 Prometheus exporter: Exposes metrics on port 8889
 **Running the Project**
+
 1️⃣ Start Collector
+
         docker run -d --name otelcol \
           -v /root/otel-collector-config.yaml:/etc/otelcol-contrib/config.yaml \
           -p 4317-4318:4317-4318 \
@@ -124,16 +126,19 @@ Prometheus exporter: Exposes metrics on port 8889
           otel/opentelemetry-collector-contrib:0.148.0 \
           --config /etc/otelcol-contrib/config.yaml
 2️⃣ Start Jaeger
+
         docker run -d --name jaeger \
           -p 16686:16686 \
           -p 14250:14250 \
           jaegertracing/all-in-one:1.42
         UI: http://localhost:16686
 3️⃣ Start Prometheus
+
         docker run -d --name prometheus \
           -p 9090:9090 prom/prometheus
            UI: http://localhost:9090
 4️⃣ Run Python App
+
         python3 app.py
         Sends traces → Jaeger
         Sends metrics → Prometheus
