@@ -77,11 +77,13 @@ app.py:
 
 
 # **Collector Configuration 
+
 (otel-collector-config.yaml)
 
-receivers:
-  otlp_grpc:
-  otlp_http:
+
+     receivers:
+     otlp_grpc:
+     otlp_http:
 
 exporters:
   prometheus:
