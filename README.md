@@ -161,7 +161,7 @@ Prometheus exporter: Exposes metrics on port 8889
               Legend: {{error_type}} for error breakdown
               Visualize both metrics in one panel or use multiple panels.
 
-# **How It Works****
+# **How It Works**
 
         Traces: Show request flow and detailed errors in Jaeger
         Metrics: Show counts, rates, and error types in Prometheus/Grafana
