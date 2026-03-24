@@ -113,13 +113,6 @@ Jaeger exporter: Receives traces
 Prometheus exporter: Exposes metrics on port 8889
 
 
-
-**Notes:**
-
-OTLP receivers: Accepts gRPC and HTTP traces/metrics
-Jaeger exporter: Receives traces
-Prometheus exporter: Exposes metrics on port 8889
-
 **Running the Project**
 
 1️⃣ Start Collector
@@ -189,30 +182,31 @@ Prometheus exporter: Exposes metrics on port 8889
 
 # **FINAL OBSERVATION**
 
-Grafana + Prometheus: Only shows metrics, i.e., numbers, counters, rates.
-Example: my_counter_total = 5 → 5 requests
-error_count_total = 2 → 2 errors
-It does not show actual error messages or stack traces.
-Where you see the actual error?
-         Jaeger (traces) → This is where you see detailed spans.
-         Each span can have:
+        Grafana + Prometheus: Only shows metrics, i.e., numbers, counters, rates.
+        Example: my_counter_total = 5 → 5 requests
+        error_count_total = 2 → 2 errors
+  It does not show actual error messages or stack traces.
+        Where you see the actual error?
+          Jaeger (traces) → This is where you see detailed spans.
+           Each span can have:
          status=error
-         Exception messages
-         Stack traces
-So if you click on a red span in Jaeger, you can see what the error actually was, while Grafana just shows the count of errors.
+          Exception messages
+          Stack traces
+          
+ So if you click on a red span in Jaeger, you can see what the error actually was, while Grafana just shows the count of errors.
 
-Think of it like this:
-Tool	Shows
-Grafana	Metrics (counts, rates, trends)
-Prometheus	Scraped metrics (numbers)
-Jaeger	Traces (actual operations & errors)
+ Think of it like this:
+        Tool	Shows
+        Grafana	Metrics (counts, rates, trends)
+        Prometheus	Scraped metrics (numbers)
+        Jaeger	Traces (actual operations & errors)
 
 # **Workflow in this setup:**
 
-Python app → generates spans & increments metrics
-OTLP exporter → sends both to otel-collector
-Collector:
-Traces → Jaeger
-Metrics → Prometheus → Grafana
-Grafana → visualize numbers & trends
-Jaeger → visualize actual spans & error details
+        Python app → generates spans & increments metrics
+        OTLP exporter → sends both to otel-collector
+        Collector:
+        Traces → Jaeger
+        Metrics → Prometheus → Grafana
+        Grafana → visualize numbers & trends
+        Jaeger → visualize actual spans & error details
