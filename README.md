@@ -40,38 +40,38 @@ Includes error counters with labels for different error types
 
 **Example snippet:**
 app.py:
-from opentelemetry import trace, metrics
-from opentelemetry.sdk.trace import TracerProvider
-from opentelemetry.sdk.trace.export import BatchSpanProcessor
-from opentelemetry.sdk.resources import Resource
-from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
-from opentelemetry.sdk.metrics import MeterProvider
-from opentelemetry.exporter.otlp.proto.grpc.metric_exporter import OTLPMetricExporter
-from opentelemetry.sdk.metrics.export import PeriodicExportingMetricReader
-#Setup Tracer
-trace.set_tracer_provider(TracerProvider(resource=Resource.create({"service.name": "sample-app"})))
-tracer = trace.get_tracer(__name__)
-span_processor = BatchSpanProcessor(OTLPSpanExporter(endpoint="localhost:4317", insecure=True))
-trace.get_tracer_provider().add_span_processor(span_processor)
-#Setup Metrics
-metrics.set_meter_provider(MeterProvider())
-meter = metrics.get_meter(__name__)
-exporter = OTLPMetricExporter(endpoint="localhost:4317", insecure=True)
-reader = PeriodicExportingMetricReader(exporter, export_interval_millis=2000)
-metrics.get_meter_provider().start_pipeline(meter, reader)
-#Custom Counter Metrics
-my_counter = meter.create_counter("my_counter_total", description="Number of app requests")
-error_counter = meter.create_counter("error_count_total", description="Number of errors occurred")
-#Application Logic
-with tracer.start_as_current_span("test-span"):
-    my_counter.add(1)
-    print("Hello OpenTelemetry!")
+        from opentelemetry import trace, metrics
+        from opentelemetry.sdk.trace import TracerProvider
+        from opentelemetry.sdk.trace.export import BatchSpanProcessor
+        from opentelemetry.sdk.resources import Resource
+        from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
+        from opentelemetry.sdk.metrics import MeterProvider
+        from opentelemetry.exporter.otlp.proto.grpc.metric_exporter import OTLPMetricExporter
+        from opentelemetry.sdk.metrics.export import PeriodicExportingMetricReader
+        #Setup Tracer
+        trace.set_tracer_provider(TracerProvider(resource=Resource.create({"service.name": "sample-app"})))
+        tracer = trace.get_tracer(__name__)
+        span_processor = BatchSpanProcessor(OTLPSpanExporter(endpoint="localhost:4317", insecure=True))
+        trace.get_tracer_provider().add_span_processor(span_processor)
+        #Setup Metrics
+        metrics.set_meter_provider(MeterProvider())
+        meter = metrics.get_meter(__name__)
+        exporter = OTLPMetricExporter(endpoint="localhost:4317", insecure=True)
+        reader = PeriodicExportingMetricReader(exporter, export_interval_millis=2000)
+        metrics.get_meter_provider().start_pipeline(meter, reader)
+        #Custom Counter Metrics
+        my_counter = meter.create_counter("my_counter_total", description="Number of app requests")
+        error_counter = meter.create_counter("error_count_total", description="Number of errors occurred")
+        #Application Logic
+        with tracer.start_as_current_span("test-span"):
+            my_counter.add(1)
+            print("Hello OpenTelemetry!")
 
-try:
-    # Simulate an error
-    raise ValueError("Random error occurred!")
-except Exception as e:
-    error_counter.add(1, {"error_type": type(e).__name__})
+        try:
+            # Simulate an error
+            raise ValueError("Random error occurred!")
+        except Exception as e:
+            error_counter.add(1, {"error_type": type(e).__name__})
 
 
 
