@@ -117,26 +117,26 @@ Jaeger exporter: Receives traces
 Prometheus exporter: Exposes metrics on port 8889
 **Running the Project**
 1️⃣ Start Collector
-docker run -d --name otelcol \
-  -v /root/otel-collector-config.yaml:/etc/otelcol-contrib/config.yaml \
-  -p 4317-4318:4317-4318 \
-  -p 8889:8889 \
-  otel/opentelemetry-collector-contrib:0.148.0 \
-  --config /etc/otelcol-contrib/config.yaml
+        docker run -d --name otelcol \
+          -v /root/otel-collector-config.yaml:/etc/otelcol-contrib/config.yaml \
+          -p 4317-4318:4317-4318 \
+          -p 8889:8889 \
+          otel/opentelemetry-collector-contrib:0.148.0 \
+          --config /etc/otelcol-contrib/config.yaml
 2️⃣ Start Jaeger
-docker run -d --name jaeger \
-  -p 16686:16686 \
-  -p 14250:14250 \
-  jaegertracing/all-in-one:1.42
-UI: http://localhost:16686
+        docker run -d --name jaeger \
+          -p 16686:16686 \
+          -p 14250:14250 \
+          jaegertracing/all-in-one:1.42
+        UI: http://localhost:16686
 3️⃣ Start Prometheus
-docker run -d --name prometheus \
-  -p 9090:9090 prom/prometheus
-UI: http://localhost:9090
+        docker run -d --name prometheus \
+          -p 9090:9090 prom/prometheus
+           UI: http://localhost:9090
 4️⃣ Run Python App
-python3 app.py
-Sends traces → Jaeger
-Sends metrics → Prometheus
+        python3 app.py
+        Sends traces → Jaeger
+        Sends metrics → Prometheus
 
 **5) Grafana Setup**
       Add Prometheus as a data source
