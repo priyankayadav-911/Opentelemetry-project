@@ -40,11 +40,11 @@ Includes error counters with labels for different error types
 
 **Example snippet:**
 app.py:
-        from opentelemetry import trace, metrics
-        from opentelemetry.sdk.trace import TracerProvider
-        from opentelemetry.sdk.trace.export import BatchSpanProcessor
-        from opentelemetry.sdk.resources import Resource
-        from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
+         from opentelemetry import trace, metrics
+         from opentelemetry.sdk.trace import TracerProvider
+         from opentelemetry.sdk.trace.export import BatchSpanProcessor
+         from opentelemetry.sdk.resources import Resource
+         from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
         from opentelemetry.sdk.metrics import MeterProvider
         from opentelemetry.exporter.otlp.proto.grpc.metric_exporter import OTLPMetricExporter
         from opentelemetry.sdk.metrics.export import PeriodicExportingMetricReader
