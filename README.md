@@ -26,7 +26,7 @@ Visualize data in real-time dashboards
                    ▼
                 Grafana Dashboard
 
-**Components:**
+# **Components:**
 
 
        1) Python App--->Generates traces and metrics, including custom counters and error metrics
