@@ -144,7 +144,7 @@ Sends metrics → Prometheus
               Legend: {{error_type}} for error breakdown
               Visualize both metrics in one panel or use multiple panels.
 
-#**How It Works****
+# **How It Works****
 Traces: Show request flow and detailed errors in Jaeger
 Metrics: Show counts, rates, and error types in Prometheus/Grafana
 Combining both allows full observability:
@@ -168,7 +168,7 @@ my_counter_total{job="unknown_service"} 5
 #TYPE error_count_total counter
 error_count_total{job="unknown_service",error_type="ValueError"} 2
 
-#**FINAL OBSERVATION**
+# **FINAL OBSERVATION**
 Grafana + Prometheus: Only shows metrics, i.e., numbers, counters, rates.
 Example: my_counter_total = 5 → 5 requests
 error_count_total = 2 → 2 errors
@@ -187,7 +187,7 @@ Grafana	Metrics (counts, rates, trends)
 Prometheus	Scraped metrics (numbers)
 Jaeger	Traces (actual operations & errors)
 
-#**Workflow in this setup:**
+# **Workflow in this setup:**
 
 Python app → generates spans & increments metrics
 OTLP exporter → sends both to otel-collector
