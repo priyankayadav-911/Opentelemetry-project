@@ -24,7 +24,7 @@ Visualize data in real-time dashboards
            └─> Prometheus (Metrics)
                    │
                    ▼
-                Grafana Dashboard
+                Grafana Dashboard.
 
 # **Components:**
 
